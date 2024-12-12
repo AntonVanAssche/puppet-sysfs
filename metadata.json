@@ -3,13 +3,46 @@
   "version": "0.2.0",
   "author": "danfoster",
   "summary": "A module for managing sysfs settings",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "source": "https://github.com/danfoster/puppet-sysfs",
   "project_page": "https://github.com/danfoster/puppet-sysfs",
   "issues_url": "https://github.com/danfoster/puppet-sysfs/issues",
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
-    {"name":"puppetlabs-concat"}
-  ]
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0 < 10.0.0"
+    },
+    {
+      "name": "puppetlabs-concat",
+      "version_requirement": ">= 1.0.0 < 10.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 7.24 < 9.0.0"
+    }
+  ],
+  "pdk-version": "3.2.0",
+  "template-url": "pdk-default#3.2.0",
+  "template-ref": "tags/3.2.0-0-gb257ef1"
 }
-
