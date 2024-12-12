@@ -63,5 +63,4 @@ class sysfs (
   if $settings {
     create_resources('sysfs::setting', $settings)
   }
-
 }
