@@ -3,8 +3,8 @@
 # @example A basic example:
 #   include sysfs
 #
-#  @param settings
-#    A hash of sysfs settings to apply.
+# @param settings
+#   A hash of sysfs settings to apply.
 #
 # === Authors
 #
