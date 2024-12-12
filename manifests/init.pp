@@ -23,20 +23,23 @@ class sysfs (
   }
 
   if ($facts['os']['family'] == 'RedHat') and (versioncmp($facts['os']['release']['full'], '7') >= 0) {
-    file { '/usr/local/bin/sysfs-reload' :
-      source => 'puppet:///modules/sysfs/sysfs-reload',
-      owner  => root,
-      group  => root,
-      mode   => '0700',
-      before => File['/etc/systemd/system/sysfsutils.service']
+    file {
+      default:
+        owner => root,
+        group => root,
+        ;
+      '/usr/local/bin/sysfs-reload':
+        source => 'puppet:///modules/sysfs/sysfs-reload',
+        mode   => '0700',
+        before => File['/etc/systemd/system/sysfsutils.service']
+        ;
+      '/etc/systemd/system/sysfsutils.service':
+        source => 'puppet:///modules/sysfs/sysfsutils.service',
+        mode => '0644',
+        before => Service['sysfsutils'],
+        ;
     }
-    file { '/etc/systemd/system/sysfsutils.service' :
-      source => 'puppet:///modules/sysfs/sysfsutils.service',
-      owner  => root,
-      group  => root,
-      mode   => '0644',
-      before => Service['sysfsutils'],
-    }
+
     exec { 'sysfsutils_reload_rhel':
       command     => '/usr/bin/awk -F= \'/(\S+)\s*=(\S+)/{cmd=sprintf("/bin/echo %s > /sys/%s",$2, $1); system(cmd)}\' /etc/sysfs.conf',
       refreshonly => true,
