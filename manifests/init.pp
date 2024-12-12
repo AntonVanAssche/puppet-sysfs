@@ -1,11 +1,10 @@
-# == Class: sysfs
+# @summary A module for managing sysfs settings.
 #
-# A module for managing sysfs settings.
+# @example A basic example:
+#   include sysfs
 #
-# === Examples
-#
-#  class { 'sysfs':
-#  }
+#  @param settings
+#    A hash of sysfs settings to apply.
 #
 # === Authors
 #
