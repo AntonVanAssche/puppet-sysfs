@@ -18,7 +18,7 @@ class sysfs (
   Optional[Hash] $settings = undef
 ) {
   package { 'sysfsutils':
-    ensure => installed
+    ensure => installed,
   }
 
   if ($facts['os']['family'] == 'RedHat') and (versioncmp($facts['os']['release']['full'], '7') >= 0) {
