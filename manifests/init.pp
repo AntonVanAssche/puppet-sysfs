@@ -61,6 +61,10 @@ class sysfs (
   }
 
   if $settings {
-    create_resources('sysfs::setting', $settings)
+    $settings.each |$key, $value| {
+      sysfs::setting { $key:
+        value => $value,
+      }
+    }
   }
 }
