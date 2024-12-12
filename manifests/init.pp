@@ -34,7 +34,7 @@ class sysfs (
         ;
       '/etc/systemd/system/sysfsutils.service':
         source => 'puppet:///modules/sysfs/sysfsutils.service',
-        mode => '0644',
+        mode   => '0644',
         before => Service['sysfsutils'],
         ;
     }
