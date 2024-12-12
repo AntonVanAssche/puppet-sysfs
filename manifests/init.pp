@@ -3,8 +3,8 @@
 # @example A basic example:
 #   include sysfs
 #
-#  @param settings
-#    A hash of sysfs settings to apply.
+# @param settings
+#   A hash of sysfs settings to apply.
 #
 # === Authors
 #
@@ -18,7 +18,7 @@ class sysfs (
   Optional[Hash] $settings = undef
 ) {
   package { 'sysfsutils':
-    ensure => installed
+    ensure => installed,
   }
 
   if ($facts['os']['family'] == 'RedHat') and (versioncmp($facts['os']['release']['full'], '7') >= 0) {
@@ -63,5 +63,4 @@ class sysfs (
   if $settings {
     create_resources('sysfs::setting', $settings)
   }
-
 }

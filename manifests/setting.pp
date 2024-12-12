@@ -8,7 +8,9 @@
 # @param value
 #   The value to set the sysfs setting to.
 #
-define sysfs::setting($value) {
+define sysfs::setting (
+  String $value
+) {
   concat::fragment { $name:
     target  => '/etc/sysfs.conf',
     content => "${name}=${value}\n";
