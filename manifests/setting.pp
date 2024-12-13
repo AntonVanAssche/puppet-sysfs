@@ -9,7 +9,7 @@
 #   The value to set the sysfs setting to.
 #
 define sysfs::setting (
-  String $value
+  Variant[String, Integer] $value,
 ) {
   concat::fragment { $name:
     target  => '/etc/sysfs.conf',
