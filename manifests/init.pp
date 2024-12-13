@@ -15,7 +15,7 @@
 # Copyright 2015 Dan Foster, unless otherwise noted.
 #
 class sysfs (
-  Optional[Hash] $settings = undef
+  Optional[Hash[String, Any]] $settings = undef
 ) {
   package { 'sysfsutils':
     ensure => installed,
